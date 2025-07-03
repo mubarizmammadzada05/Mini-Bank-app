@@ -1,0 +1,31 @@
+server:
+  port: 8080
+
+spring:
+  datasource:
+    url: ${SPRING_DATASOURCE_URL:jdbc:postgresql://localhost:5440/transactiondb}
+    username: ${SPRING_DATASOURCE_USERNAME:user}
+    password: ${SPRING_DATASOURCE_PASSWORD:pass}
+  jpa:
+    hibernate:
+      ddl-auto: ${SPRING_JPA_HIBERNATE_DDL_AUTO:update}
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+
+client:
+  ms-customer:
+    url: http://ms-customer:8080
+#    url: http://localhost:8083
+
+
+security:
+  secret-key: fb04617512345678901234567890123456789012345678901234567890123456
+  expiration: 3600000
+
+feign:
+  client:
+    config:
+      default:
+        requestInterceptors:
+          - com.example.config.FeignConfig
