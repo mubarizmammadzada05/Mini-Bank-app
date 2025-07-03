@@ -38,10 +38,5 @@ public class CustomerController {
         return ResponseEntity.ok(customerService.updateBalance(id, request.getAmount()));
     }
 
-    @GetMapping("/health")
-    public ResponseEntity<String> health() {
-        return ResponseEntity.ok("MS-Customer is running!");
-    }
-
 }
 
